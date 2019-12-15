@@ -12,10 +12,41 @@
     <link href="<?= base_url() ?>assets/lib/datatables/jquery.dataTables.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/lib/datatables/jquery.dataTables.bootstrap4.min.css" rel="stylesheet">
 
-
+    <!--Theme Switcher-->
+    <style id="hide-theme">
+        body{
+            display:none;
+        }
+    </style>
+    <script type="text/javascript">
+        function setTheme(name){
+            var theme = document.getElementById('theme-css');
+            var style = 'assets/css/theme-' + name + '.css';
+            if(theme){
+                theme.setAttribute('href', style);
+            } else {
+                var head = document.getElementsByTagName('head')[0];
+                theme = document.createElement("link");
+                theme.setAttribute('rel', 'stylesheet');
+                theme.setAttribute('href', style);
+                theme.setAttribute('id', 'theme-css');
+                head.appendChild(theme);
+            }
+            window.localStorage.setItem('lumino-theme', name);
+        }
+        var selectedTheme = window.localStorage.getItem('lumino-theme');
+        if(selectedTheme) {
+            setTheme(selectedTheme);
+        }
+        window.setTimeout(function(){
+            var el = document.getElementById('hide-theme');
+            el.parentNode.removeChild(el);
+        }, 5);
+    </script>
+    <!-- End Theme Switcher -->
 
     <!--Theme-->
-    <link href="<?= base_url() ?>assets/css/theme-default.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/theme-default.css" rel="stylesheet" id="theme">
 
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -102,11 +133,11 @@
 <!--            </ul>-->
             <ul class="navbar-right theme-switcher" id ="theme-css">
                 <li><span>Choose Theme:</span></li>
-                <li><a href="" title="Default" data-theme="default" class="theme-btn theme-btn-default"onclick="setTheme(default)">Default</a></li>
-                <li><a href="" title="Iris" data-theme="iris" class="theme-btn theme-btn-iris" onclick="setTheme(iris)">Iris</a></li>
-                <li><a href="" title="Midnight" data-theme="midnight" class="theme-btn theme-btn-midnight" onclick="setTheme(midnight)">Midnight</a></li>
-                <li><a href="" title="Lime" data-theme="lime" class="theme-btn theme-btn-lime" onclick="setTheme(lime)">Lime</a></li>
-                <li><a href="" title="Rose" data-theme="rose" class="theme-btn theme-btn-rose" onclick="setTheme(rose)">Rose</a></li>
+                <li><a href="" title="Default" data-theme="default" class="theme-btn theme-btn-default">Default</a></li>
+                <li><a href="" title="Iris" data-theme="iris" class="theme-btn theme-btn-iris">Iris</a></li>
+                <li><a href="" title="Midnight" data-theme="midnight" class="theme-btn theme-btn-midnight">Midnight</a></li>
+                <li><a href="" title="Lime" data-theme="lime" class="theme-btn theme-btn-lime">Lime</a></li>
+                <li><a href="" title="Rose" data-theme="rose" class="theme-btn theme-btn-rose">Rose</a></li>
             </ul>
         </div>
     </div><!-- /.container-fluid -->
