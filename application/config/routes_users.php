@@ -17,3 +17,5 @@ $route['data_tki_bio'] = 'dashboard/data_tki_bio';
 $route['data_rekom'] = 'dashboard/data_rekom';
 $route['data_market'] = 'dashboard/data_market';
 $route['data_lanjut'] = 'dashboard/data_lanjut';
+$route['data_market'] = 'dashboard/data_market';
+$route['data_kug'] = 'dashboard/data_kug';

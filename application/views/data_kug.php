@@ -69,7 +69,7 @@ $this->load->view('layout/sidebar');
                                 value[5] = json.data[i]['nama_np'];
                                 value[6] = json.data[i]['nama_lengkap'];
                                 value[7] = json.data[i]['no_ktp'];
-                                value[8] = '<button class="btn btn-sm btn-primary" title="Edit" onclick="negara_id('+json.data[i]['negara_id']+','+json.data[i]['id']+')"><i class="glyphicon glyphicon-pencil"></i> Edit</button>';
+                                value[8] = '<a class="btn btn-sm btn-primary" href="dashboard/rekom/'+json.data[i]['id']+'" title="Edit" onclick=""><i class="glyphicon glyphicon-pencil"></i> Edit</a>';
                                 // value[12] += '&nbsp;<a class="btn btn-sm btn-danger" href="" title="Hapus" onclick="delete_probono('+json.data[i]['id']+')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
                                 data[i] = value;
                             }
@@ -90,70 +90,16 @@ $this->load->view('layout/sidebar');
             }
 
             function singapura(negara_id,id) {
-                // location.replace("dashboard/biodata/"+id);
-                window.location = ROOT + 'dashboard/biodata/'+id;
+                location.replace("dashboard/biodata/"+id);
             }
 
-            function malaysia(negara_id,id) {
-                // alert('malaysia');
-                // location.replace("dashboard/biodata_mly/"+id);
-                window.location = ROOT + 'dashboard/biodata_mly/'+id;
+            function malaysia() {
+                alert('malaysia');
             }
 
-            function hongkong(negara_id,id) {
-                // alert('hongkong');
-                window.location = ROOT + 'dashboard/biodata_hkg/'+id;
+            function hongkong() {
+                alert('hongkong');
             }
-
-
-            //
-            // function update() {
-            //     $.ajax({
-            //         url: ROOT + '/dashboard_ajax/register_update',
-            //         dataType: 'json',
-            //         type: 'post',
-            //         data: {
-            //             negara: $('#negara').val(),
-            //             tgl_msk: $('#tgl_msk').val(),
-            //             sponsor: $('#sponsor').val(),
-            //             np: $('#np').val(),
-            //             nama: $('#nama').val(),
-            //             tmp_lahir: $('#tmp_lahir').val(),
-            //             tgl_lahir: $('#tgl_lahir').val(),
-            //             jk: $('#jk').val(),
-            //             alamat: $('#alamat').val(),
-            //             no_ktp: $('#no_ktp').val(),
-            //             no_kk: $('#no_kk').val(),
-            //             kakak: $('#kakak').val(),
-            //             adik: $('#adik').val(),
-            //             pendidikan: $('#pendidikan').val(),
-            //             ijasah: $('#ijasah').val(),
-            //             status: $('#status').val(),
-            //             agama: $('#agama').val(),
-            //             no_tlp: $('#no_tlp').val(),
-            //             tinggi: $('#tinggi').val(),
-            //             berat: $('#berat').val(),
-            //             no_kode: $('#no_kode').val(),
-            //             hasil_medical: $('#hasil_medical').val(),
-            //             tgl_medical: $('#tgl_medical').val(),
-            //             id: user_id
-            //         }
-            //     })
-            //         .done(function (data) {
-            //             if (data.is_error) {
-            //                 alert(data.error_message);
-            //                 return false;
-            //             }
-            //             window.location = ROOT + 'dashboard/data_tki';
-            //         })
-            //     // .always(function(){
-            //     //     // $('#buy_button_loading').addClass('d-none');
-            //     //     // $('#buy_button').removeClass('d-none');
-            //     // })
-            //     // .error(function(data){
-            //     //     }
-            //     // );
-            // }
 
         </script>
 <?php

@@ -69,7 +69,7 @@ if (!empty($values)) {
                                    } ?>">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-2 col-sm-2">
                         <div class="form-group input-group-sm">
                             <label>Sponsor</label>
                             <input type="text" name="sponsor" id="sponsor" class="form-control"
@@ -78,9 +78,9 @@ if (!empty($values)) {
                             } ?>">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-2 col-sm-2">
                         <div class="form-group ">
-                            <label>NP</label>
+                            <label>Proses</label>
                             <select name="np" id="np" class="form-control input-sm">
                                 <option></option>
                                 <?php
@@ -96,6 +96,15 @@ if (!empty($values)) {
                                 }
                                 ?>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group input-group-sm">
+                            <label>PL</label>
+                            <input type="text" name="pl" id="pl" class="form-control"
+                                   placeholder="Petugal Lapangan" value="<?php if ($values) {
+                                echo $values->pl;
+                            } ?>">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
@@ -963,7 +972,7 @@ if (!empty($values)) {
                             value[0] = no++;
                             value[1] = json.data[i]['name'];
                             value[2] = json.data[i]['group'];
-                            value[3] = '<a href="' + ROOT + 'assets/images/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                            value[3] = '<a href="' + ROOT + 'assets/images/lampiran/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
                             value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_upload(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
                             data[i] = value;
                         }
@@ -1063,6 +1072,7 @@ if (!empty($values)) {
                     no_kode: $('#no_kode').val(),
                     hasil_medical: $('#hasil_medical').val(),
                     tgl_medical: $('#tgl_medical').val(),
+                    pl: $('#pl').val(),
                     id: user_id
                 }
             })

@@ -69,7 +69,7 @@ $this->load->view('layout/sidebar');
                                 value[5] = json.data[i]['nama_np'];
                                 value[6] = json.data[i]['nama_lengkap'];
                                 value[7] = json.data[i]['no_ktp'];
-                                value[8] = '<a class="btn btn-sm btn-primary" href="" title="Edit" onclick=""><i class="glyphicon glyphicon-pencil"></i> Edit</a>';
+                                value[8] = '<a class="btn btn-sm btn-primary" href="dashboard/market/'+json.data[i]['id']+'" title="Edit" onclick=""><i class="glyphicon glyphicon-pencil"></i> Edit</a>';
                                 // value[12] += '&nbsp;<a class="btn btn-sm btn-danger" href="" title="Hapus" onclick="delete_probono('+json.data[i]['id']+')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
                                 data[i] = value;
                             }

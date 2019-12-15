@@ -83,24 +83,25 @@ $this->load->view('layout/sidebar');
                 if (negara_id==1){
                     singapura(negara_id,id);
                 } else if (negara_id==2){
-                    alert('malaysia');
+                    // alert('malaysia');
                     malaysia(negara_id,id);
                 } else{
-                    alert('hongkong');
+                    // alert('hongkong');
                     hongkong(negara_id,id);
                 }
             }
 
             function singapura(negara_id,id) {
-                location.replace("dashboard/lanjut/"+id);
+                // location.replace("dashboard/lanjut/"+id);
+                window.location = ROOT + 'dashboard/lanjut/'+id;
             }
 
-            function malaysia() {
-                alert('malaysia');
+            function malaysia(negara_id,id) {
+                window.location = ROOT + 'dashboard/lanjut_mly/'+id;
             }
 
-            function hongkong() {
-                alert('hongkong');
+            function hongkong(negara_id,id) {
+                window.location = ROOT + 'dashboard/lanjut_hkg/'+id;
             }
 
         </script>

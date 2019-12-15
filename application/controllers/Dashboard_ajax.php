@@ -47,7 +47,10 @@ class Dashboard_ajax extends CI_Controller {
     {
         $this->load->model(array(
             'm_fr_regis',
-            'm_fr_bio_sgp'));
+            'm_fr_bio_sgp',
+            'm_fr_bio_mly',
+            'm_fr_bio_hkg'
+        ));
         header('Content-Type: application/json');
         // Create no_kode
         $get_row = $this->m_fr_regis->get_last_row();
@@ -80,7 +83,13 @@ class Dashboard_ajax extends CI_Controller {
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             );
-            $this->m_fr_bio_sgp->set($data2);
+            if ($negara == 1){
+                $this->m_fr_bio_sgp->set($data2);
+            }else if ($negara == 2){
+                $this->m_fr_bio_mly->set($data2);
+            }else {
+                $this->m_fr_bio_hkg->set($data2);;
+            }
             echo json_encode(array(
                 'is_error'=>false,
                 'id'=>$data
@@ -124,6 +133,7 @@ class Dashboard_ajax extends CI_Controller {
         $this->form_validation->set_rules('berat', "Berat", 'trim|integer|max_length[10]');
         $this->form_validation->set_rules('hasil_medical', "Hasil Medical", 'trim|integer|max_length[10]');
         $this->form_validation->set_rules('tgl_medical', "Tanggal Medical", 'trim|max_length[250]');
+        $this->form_validation->set_rules('pl', "Petugas Lapangan", 'trim|max_length[250]');
 
         if ($this->form_validation->run()) {
 
@@ -151,6 +161,7 @@ class Dashboard_ajax extends CI_Controller {
             $berat=$this->form_validation->set_value('berat');
             $hasil_medical=$this->form_validation->set_value('hasil_medical');
             $tgl_medical=$this->form_validation->set_value('tgl_medical');
+            $pl=$this->form_validation->set_value('pl');
 
             $data=array(
                         'negara_id' => $negara,
@@ -176,6 +187,7 @@ class Dashboard_ajax extends CI_Controller {
                         'berat' => $berat,
                         'medical_status' => $hasil_medical,
                         'tgl_finger_medical' => $tgl_medical,
+                        'pl' => $pl,
                         'updated_at' => date("Y-m-d H:i:s"));
 
             $data=$this->m_fr_regis->update_value_by_id($id,$data);
@@ -402,12 +414,12 @@ class Dashboard_ajax extends CI_Controller {
     function do_upload(){
         $this->load->model('m_fr_regis_file');
 
-        $config['upload_path']='./assets/images/';
+        $config['upload_path']='./assets/images/lampiran/';
 //        $config['upload_path']=APPPATH . 'assets/images/';
 //        $config['upload_path']='/Applications/XAMPP/xamppfiles/htdocs/TKI/assets/images/';
         $config['allowed_types']='gif|jpg|png|psd|jpeg|jpg2|jpe|j2k|jpf|jpm|pdf|svg';
         $config['encrypt_name'] = TRUE;
-        $config['max_size'] = 5000;
+        $config['max_size'] = 50000;
 
         $this->load->library('upload',$config);
         $this->upload->initialize($config);
@@ -496,7 +508,8 @@ class Dashboard_ajax extends CI_Controller {
 
         if ($this->form_validation->run()) {
             $id=$this->form_validation->set_value('id');
-            $data=$this->m_fr_regis_file->get_all_by_id($id);
+            $group = array(1,2,3,4,5,7);
+            $data=$this->m_fr_regis_file->get_all_by_id($id,$group);
             echo json_encode(array(
                 'is_error'=>false,
                 'data'=> $data

@@ -41,7 +41,7 @@ class M_fr_regis_file extends CI_Model
         return false;
     }
 
-    function get_all_by_id($id){
+    function get_all_by_id($id,$group){
         $this->db->select(
             $this->table.".id,".
             $this->table.".user_id,".
@@ -54,10 +54,17 @@ class M_fr_regis_file extends CI_Model
                    when ".$this->table.".group = 5 then 'SURAT IZIN' 
                    when ".$this->table.".group = 6 then 'BUKU NIKAH' 
                    when ".$this->table.".group = 7 then 'MEDICAL' 
+                   when ".$this->table.".group = 8 then 'PASPOR' 
+                   when ".$this->table.".group = 9 then 'SERTIFIKAT BLK' 
+                   when ".$this->table.".group = 10 then 'ASURANSI PURNA' 
+                   when ".$this->table.".group = 11 then 'JO' 
+                   when ".$this->table.".group = 12 then 'VISA'
                    else '' END) as 'group'"
         );
         $this->db->where('user_id', $id);
+        $this->db->where_in('group', $group);
         $query=$this->db->get($this->table);
+//        echo $this->db->last_query();exit;
         if($query){
             return $query->result();
         }

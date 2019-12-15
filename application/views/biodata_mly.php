@@ -251,8 +251,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Nationality</label>
                             <input type="text" name="nationality" id="nationality" class="form-control" placeholder="nationality"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->nationality;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->nationality;
                                    } ?>">
                         </div>
                     </div>
@@ -260,50 +260,19 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Airport</label>
                             <input type="text" name="airport" id="airport" class="form-control" placeholder="Airport"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->airport;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->airport;
                                    } ?>">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <hr>
-                        MEDICAL HISTORY
+                        RECOMMENDED FOR : ( “checked”  means she can)
                     </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Alergies (If Any)</label>
-                                <input type="text" name="alergies" id="alergies" class="form-control" placeholder="Alergies"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->alergies;
-                                       } ?>">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Physical Disabilities</label>
-                                <input type="text" name="physical_dis" id="physical_dis" class="form-control" placeholder="Disabilities"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->physical_dis;
-                                       } ?>">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Dietary Restriction</label>
-                                <input type="text" name="dietary" id="dietary" class="form-control" placeholder="Dietary"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->dietary;
-                                       } ?>">
-                            </div>
-                        </div>
                     <div class="col-md-12 col-sm-12">
-                        <hr>
-                        <p>Food handling Preference:</p>
+                        <br>
                         <?php
-                        foreach ($food as $row) {
+                        foreach ($recom as $row) {
                             $check = "";
                             if ($row->user_id) {
                                 $check = "checked";
@@ -311,9 +280,9 @@ if (!empty($values)) {
                             ?>
                             <div class="col-md-2 col-sm-2">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" <?= $check ?> id="food<?= $row->id ?>"
-                                           onclick="set_food(<?= $row->id ?>)"
-                                           value="<?= $row->id ?>"> <?= $row->food ?>
+                                    <input type="checkbox" <?= $check ?> id="recom<?= $row->id ?>"
+                                           onclick="set_recom(<?= $row->id ?>)"
+                                           value="<?= $row->id ?>"> <?= $row->recommended ?>
                                 </label>
                             </div>
                             <?php
@@ -322,25 +291,68 @@ if (!empty($values)) {
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <hr>
-                        <p>Past and existing illnesses (including chronic ailments and illnesses requiring medication):</p>
-                        <?php
-                        foreach ($illness as $row) {
-                            $check = "";
-                            if ($row->user_id) {
-                                $check = "checked";
-                            }
-                            ?>
-                            <div class="col-md-2 col-sm-2">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?= $check ?> id="illness<?= $row->id ?>"
-                                           onclick="set_illness(<?= $row->id ?>)"
-                                           value="<?= $row->id ?>"> <?= $row->illness ?>
-                                </label>
-                            </div>
-                            <?php
-                        }
-                        ?>
+                        INTERVIEW APPRAISAL
                     </div>
+                    <?php
+                    $aprArr = array();
+                    foreach ($appraisal as $apr) {
+                        ?>
+                        <div class="appraisalio" id="appraisal<?= $apr->id ?>">
+                            <div class="col-md-12 col-sm-12">
+                                <br>
+                                <div class="col-md-3 col-sm-3">
+                                    <label><?= $apr->appraisal ?></label>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="appraisal<?= $apr->id ?>" type="radio"
+                                                   id="<?= $apr->id ?>" value="1"
+                                                <?php if ($apr->kemampuan_val == 1) {
+                                                    echo "checked";
+                                                } ?>>Poor
+                                        </label>
+                                    </>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="appraisal<?= $apr->id ?>" type="radio"
+                                                   id="<?= $apr->id ?>" value="2"
+                                                <?php if ($apr->kemampuan_val == 2) {
+                                                    echo "checked";
+                                                } ?> >Fair
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="appraisal<?= $apr->id ?>" type="radio"
+                                                   id="<?= $apr->id ?>" value="3"
+                                                <?php if ($apr->kemampuan_val == 3) {
+                                                    echo "checked";
+                                                } ?> >Good
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="appraisal<?= $apr->id ?>" type="radio"
+                                                   id="<?= $apr->id ?>" value="4"
+                                                <?php if ($apr->kemampuan_val == 4) {
+                                                    echo "checked";
+                                                } ?> >Very Good
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        array_push($aprArr,"appraisal".$apr->id );
+                    }
+                    ?>
                     <div class="col-md-12 col-sm-12">
                         <hr>
                         KETERAMPILAN
@@ -435,39 +447,108 @@ if (!empty($values)) {
                             </thead>
                         </table>
                     </div>
-
                     <div class="col-md-12 col-sm-12">
                         <hr>
-                        FEED BACK
+                        DATA KELUARGA
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <br>
-                        <div class="form-group">
-                            <label>Employer 1</label>
-                            <textarea name="feedback1" id="feedback1" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->feedback1;
-                                } ?></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <br>
-                        <div class="form-group">
-                            <label>Employer 2</label>
-                            <textarea name="feedback2" id="feedback2" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->feedback2;
-                                } ?></textarea>
-                        </div>
-                    </div>
-
                     <div class="col-md-12 col-sm-12">
-                        <br>
-                        <div class="form-group">
-                            <label>Other Remarks</label>
-                            <textarea name="other_remarks" id="other_remarks" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->other_remarks;
-                                } ?></textarea>
-                        </div>
+                        <table id="tableKK" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <!--                                <th><input type="checkbox" id="checkedAll"/></th>-->
+                                <th>No</th>
+                                <th>Status</th>
+                                <th>Nama</th>
+                                <th>Umur</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
+                    <div class="col-md-12 col-sm-12">
+                        <hr>
+                        Please answer by (Yes) or (No) below to show which at the following duties you are willing to undertake and which you have had experience of:-
+                    </div>
+                    <?php
+                    $wilArr = array();
+                    foreach ($willing as $wil) {
+                        ?>
+                        <div class="willingio" id="willing<?= $wil->id ?>">
+                            <div class="col-md-12 col-sm-12">
+                                <br>
+                                <div class="col-md-6 col-sm-6">
+                                    <label><?= $wil->willing ?></label>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="willing<?= $wil->id ?>" type="radio"
+                                                   id="<?= $wil->id ?>" value="1"
+                                                <?php if ($wil->kemampuan_val == 1) {
+                                                    echo "checked";
+                                                } ?>>Willing
+                                        </label>
+                                    </>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="willing<?= $wil->id ?>" type="radio"
+                                                   id="<?= $wil->id ?>" value="2"
+                                                <?php if ($wil->kemampuan_val == 2) {
+                                                    echo "checked";
+                                                } ?> >Exp.
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        array_push($wilArr,"willing".$wil->id );
+                    }
+                    ?>
+                    <div class="col-md-12 col-sm-12">
+                        <hr>
+                        GENERAL INFORMATIONS
+                    </div>
+                    <?php
+                    $genArr = array();
+                    foreach ($general as $gen) {
+                        ?>
+                        <div class="generalio" id="general<?= $gen->id ?>">
+                            <div class="col-md-12 col-sm-12">
+                                <br>
+                                <div class="col-md-6 col-sm-6">
+                                    <label><?= $gen->general ?></label>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="general<?= $gen->id ?>" type="radio"
+                                                   id="<?= $gen->id ?>" value="1"
+                                                <?php if ($gen->kemampuan_val == 1) {
+                                                    echo "checked";
+                                                } ?>>Yes
+                                        </label>
+                                    </>
+                                </div>
+                                <div class="col-md-2 col-md-2">
+                                    <p class="p-v-xs col m2">
+                                        <label class="radio-inline">
+                                            <input class="with-gap" name="general<?= $gen->id ?>" type="radio"
+                                                   id="<?= $gen->id ?>" value="2"
+                                                <?php if ($gen->kemampuan_val == 2) {
+                                                    echo "checked";
+                                                } ?> >No
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        array_push($genArr,"general".$gen->id );
+                    }
+                    ?>
                     <div class="form-group">
                         <div class="col-md-12">
                             <hr>
@@ -512,40 +593,112 @@ if (!empty($values)) {
     </div>
 
     <script>
-        var set_illness = function (id) {
-            var user_id = $("#user_id").val();
-            $val = $('#illness' + id).is(":checked");
-            var value = 0; //uncheck
-            alert(user_id);
-            alert(id);
+        $(function () {
+            var apprArr = <?php echo json_encode($aprArr); ?>;
+            var wilArr = <?php echo json_encode($wilArr); ?>;
+            var genArr = <?php echo json_encode($genArr); ?>;
 
-
-            if ($val) {
-                value = 1; //checked
-            }
-            alert(value);
-            $.ajax({
-                url: ROOT + 'biodata_ajax/ajax_set_illness',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    "value": value,
-                    "illness": id,
-                    "user_id": user_id
-                }
-            })
-                .done(function (data) {
-                    if (data.is_error == 1) {
-                        alert_error(data.error_message);
-                        return;
+            $.each(apprArr, function (index, value) {
+                $('#'+value).on('change', function () {
+                    var appraisal_val = $('input[name='+value+']:checked', '#'+value).val();
+                    // alert(appraisal_val);
+                    // alert(value);
+                    var user_id = $("#user_id").val();
+                    var appr_length = value.length;
+                    if (appr_length < 11){
+                        var appr_id = value.substring(9,10);
+                    }else{
+                        var appr_id = value.substring(9,11);
                     }
-                    console.log(data);
-                })
-        }
+                    // alert(appr_id);
+                    $.ajax({
+                        url: ROOT + 'biodata_mly_ajax/ajax_set_appraisal',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            "appraisal_val": appraisal_val,
+                            "user_id": user_id,
+                            "appr_id": appr_id
+                        }
+                    })
+                        .done(function (data) {
+                            if (data.is_error == 1) {
+                                alert_error(data.error_message);
+                                return;
+                            }
+                            console.log(data);
+                        })
+                });
+            });
 
-        var set_food = function (id) {
+            $.each(wilArr, function (index, value) {
+                $('#'+value).on('change', function () {
+                    var willing_val = $('input[name='+value+']:checked', '#'+value).val();
+                    // alert(willing_val);
+                    // alert(value);
+                    var user_id = $("#user_id").val();
+                    var wil_length = value.length;
+                    // alert(wil_length);
+                    if (wil_length < 9){
+                        var wil_id = value.substring(7,8);
+                    }else{
+                        var wil_id = value.substring(7,9);
+                    }
+                    // alert(wil_id);
+                    $.ajax({
+                        url: ROOT + 'biodata_mly_ajax/ajax_set_willing',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            "willing_val": willing_val,
+                            "user_id": user_id,
+                            "wil_id": wil_id
+                        }
+                    })
+                        .done(function (data) {
+                            if (data.is_error == 1) {
+                                alert_error(data.error_message);
+                                return;
+                            }
+                            console.log(data);
+                        })
+                });
+            });
+
+            $.each(genArr, function (index, value) {
+                $('#'+value).on('change', function () {
+                    var general_val = $('input[name='+value+']:checked', '#'+value).val();
+                    var user_id = $("#user_id").val();
+                    var gen_length = value.length;
+                    if (gen_length < 9){
+                        var gen_id = value.substring(7,8);
+                    }else{
+                        var gen_id = value.substring(7,9);
+                    }
+                    $.ajax({
+                        url: ROOT + 'biodata_mly_ajax/ajax_set_general',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            "general_val": general_val,
+                            "user_id": user_id,
+                            "gen_id": gen_id
+                        }
+                    })
+                        .done(function (data) {
+                            if (data.is_error == 1) {
+                                alert_error(data.error_message);
+                                return;
+                            }
+                            console.log(data);
+                        })
+                });
+            });
+
+        });
+        var set_recom = function (id) {
             var user_id = $("#user_id").val();
-            $val = $('#food' + id).is(":checked");
+            $val = $('#recom' + id).is(":checked");
             var value = 0; //uncheck
             alert(user_id);
             alert(id);
@@ -555,12 +708,12 @@ if (!empty($values)) {
             }
             alert(value);
             $.ajax({
-                url: ROOT + 'biodata_ajax/ajax_set_food',
+                url: ROOT + 'biodata_mly_ajax/ajax_set_recom',
                 type: 'post',
                 dataType: 'json',
                 data: {
                     "value": value,
-                    "food": id,
+                    "recom": id,
                     "user_id": user_id
                 }
             })
@@ -583,18 +736,12 @@ if (!empty($values)) {
 
         function update() {
             $.ajax({
-                url: ROOT + '/biodata_ajax/bio_update',
+                url: ROOT + '/biodata_mly_ajax/bio_update',
                 dataType: 'json',
                 type: 'post',
                 data: {
                     nationality: $('#nationality').val(),
                     airport: $('#airport').val(),
-                    alergies: $('#alergies').val(),
-                    physical_dis: $('#physical_dis').val(),
-                    dietary: $('#dietary').val(),
-                    feedback1: $('#feedback1').val(),
-                    feedback2: $('#feedback2').val(),
-                    other_remarks: $('#other_remarks').val(),
                     id: user_id
                 }
             })
@@ -605,13 +752,6 @@ if (!empty($values)) {
                     }
                     window.location = ROOT + 'data_tki_bio';
                 })
-            // .always(function(){
-            //     // $('#buy_button_loading').addClass('d-none');
-            //     // $('#buy_button').removeClass('d-none');
-            // })
-            // .error(function(data){
-            //     }
-            // );
         }
 
         $('#submit-btn-photo').click(function () {
@@ -661,6 +801,39 @@ if (!empty($values)) {
                         value[3] = json.data[i]['sampai'];
                         value[4] = json.data[i]['kota'];
                         value[5] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_ker(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        // <button id="submit-btn" type="submit" class="btn btn-lg btn-primary pull-left">Submit</button>
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
+        $('#tableKK').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            // language: {
+            //     searchPlaceholder: 'Search...',
+            //     sSearch: '',
+            //     lengthMenu: '_MENU_ items/page',
+            // },
+            // "scrollX": true,
+            ajax: {
+                "url": ROOT + "/dashboard_ajax/kk_get/" + id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['status'];
+                        value[2] = json.data[i]['nama'];
+                        value[3] = json.data[i]['umur'];
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_kk(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
                         // <button id="submit-btn" type="submit" class="btn btn-lg btn-primary pull-left">Submit</button>
                         data[i] = value;
                     }

@@ -25,13 +25,13 @@ if (!empty($values)) {
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Rekom</li>
+            <li class="active">Market</li>
         </ol>
     </div><!--/.row-->
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Rekom</h1>
+            <h1 class="page-header">Market</h1>
         </div>
     </div><!--/.row-->
 
@@ -245,101 +245,31 @@ if (!empty($values)) {
                             </select>
                         </div>
                     </div>
-<!--                    <div class="col-md-3 col-sm-3">-->
-<!--                        <div class="form-group input-group-sm">-->
-<!--                            <label>Nationality</label>-->
-<!--                            <input type="text" name="nationality" id="nationality" class="form-control" placeholder="nationality"-->
-<!--                                   value="--><?php //if ($bio_sgp) {
-//                                       echo $bio_sgp->nationality;
-//                                   } ?><!--" readonly>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 col-sm-3">-->
-<!--                        <div class="form-group input-group-sm">-->
-<!--                            <label>Airport</label>-->
-<!--                            <input type="text" name="airport" id="airport" class="form-control" placeholder="Airport"-->
-<!--                                   value="--><?php //if ($bio_sgp) {
-//                                       echo $bio_sgp->airport;
-//                                   } ?><!--" readonly>-->
-<!--                        </div>-->
-<!--                    </div>-->
                     <div class="col-md-12 col-sm-12">
                         <hr>
-                        INPUT DATA REKOM
+                        INPUT JO
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <div class="form-group input-group-sm">
-                            <label>ID REKOM</label>
-                            <input type="text" name="rekom_id" id="rekom_id" class="form-control" placeholder="ID REKOM"
+                            <label>Tanggal Turun JO</label>
+                            <input type="date" name="tgl_jo" id="tgl_jo" class="form-control"
                                    value="<?php if ($values) {
-                                       echo $values->id_rekom;
+                                       echo $values->tgl_jo;
                                    } ?>">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-2 col-sm-2">
                         <br>
                         <div class="form-group input-group-sm">
-                            <label>Tanggal Rekom</label>
-                            <input type="date" name="tgl_rekom" id="tgl_rekom" class="form-control"
-                                   value="<?php if ($values) {
-                                       echo $values->tgl_rekom;
-                                   } ?>">
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <hr>
-                        INPUT DATA PASPOR
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>Tanggal Pembuatan Paspor</label>
-                            <input type="date" name="tgl_paspor" id="tgl_paspor" class="form-control"
-                                   value="<?php if ($values) {
-                                       echo $values->tgl_paspor;
-                                   } ?>">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>Tanggal Expired Paspor</label>
-                            <input type="date" name="exp_paspor" id="exp_paspor" class="form-control"
-                                   value="<?php if ($values) {
-                                       echo $values->tgl_exp_paspor;
-                                   } ?>">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>No Paspor</label>
-                            <input type="text" name="no_paspor" id="no_paspor" class="form-control" placeholder="No Paspor"
-                                   value="<?php if ($values) {
-                                       echo $values->no_paspor;
-                                   } ?>">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>Daerah Pengeluaran Paspor</label>
-                            <input type="text" name="daerah_paspor" id="daerah_paspor" class="form-control" placeholder="Daerah"
-                                   value="<?php if ($values) {
-                                       echo $values->daerah_paspor;
-                                   } ?>">
-                        </div>
-                    </div>
-
-                    <div class="search-result-item col-md-12">
-                        <hr>
-                        <div class="col-sm-2">
-                            <button id="addPhoto" class="btn btn-default margin btn-sm center-block" type="button"
-                                    data-toggle="modal" data-target="#addModalRekom"><span class="fa fa-plus"></span> &nbsp;Upload Paspor
+                            <label>Scan</label>
+                            <button id="addJo" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalJo"><span class="fa fa-plus"></span> &nbsp;Upload JO
                             </button>
                         </div>
-                        <table id="tableRekom" class="table table-striped table-sm">
+                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableJo" class="table table-striped table-sm">
                             <thead>
                             <tr>
                                 <!--                                <th><input type="checkbox" id="checkedAll"/></th>-->
@@ -352,6 +282,110 @@ if (!empty($values)) {
                             </thead>
                         </table>
                     </div><!--/.search-result-item-->
+                    <div class="col-md-12 col-sm-12">
+                        INPUT VISA
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Tanggal Turun VISA</label>
+                            <input type="date" name="tgl_visa" id="tgl_visa" class="form-control"
+                                   value="<?php if ($values) {
+                                       echo $values->tgl_visa;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Scan</label>
+                            <button id="addVisa" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalVisa"><span class="fa fa-plus"></span> &nbsp;Upload Visa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableVisa" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <!--                                <th><input type="checkbox" id="checkedAll"/></th>-->
+                                <th>No</th>
+                                <th>Nama File</th>
+                                <th>Jenis File</th>
+                                <th>Download</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div><!--/.search-result-item-->
+                    <div class="col-md-12 col-sm-12">
+                        INPUT DATA PENERBANGAN
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Tanggal Penerbangan</label>
+                            <input type="date" name="tgl_terbang" id="tgl_terbang" class="form-control"
+                                   value="<?php if ($values) {
+                                       echo $values->tgl_terbang;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Nomor Pesawat</label>
+                            <input type="text" name="no_pesawat" id="no_pesawat" class="form-control"
+                                   value="<?php if ($values) {
+                                       echo $values->no_pesawat;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Jam Penerbangan</label>
+                            <input type="number" name="jam_terbang" id="jam_terbang" class="form-control"
+                                   value="<?php if ($values) {
+                                       echo $values->jam_terbang;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Scan</label>
+                            <button id="addTiket" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalTiket"><span class="fa fa-plus"></span> &nbsp;Upload Tiket
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableTiket" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <!--                                <th><input type="checkbox" id="checkedAll"/></th>-->
+                                <th>No</th>
+                                <th>Nama File</th>
+                                <th>Jenis File</th>
+                                <th>Download</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div><!--/.search-result-item-->
+                    <div class="col-md-12 col-sm-12">
+                        INPUT DATA PERMASALAHAN
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <br>
+                            <label>Permasalahan (Jika Ada)</label>
+                            <textarea name="masalah" id="masalah" class="form-control" rows="3"><?php if ($values) {
+                                    echo $values->masalah;
+                                } ?></textarea>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <button id="submit-btn" class="btn btn-lg btn-primary pull-left">Submit
@@ -363,24 +397,78 @@ if (!empty($values)) {
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="addModalRekom" role="dialog">
+    <!-- Modal JO-->
+    <div class="modal fade" id="addModalJo" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Upload File Rekom</h4>
+                    <h4 class="modal-title">Upload File JO</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="submit_rekom" class="panel-body" enctype="multipart/form-data">
+                    <form id="submit_jo" class="panel-body" enctype="multipart/form-data">
                         <div class="form-group input-group-sm">
                             <label class="btn btn-default">
-                                <input type="file" name="file" id="file_u_rekom">
+                                <input type="file" name="file" id="file_u_jo">
                             </label>
                         </div>
-                        <button id="submit-btn-rekom" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                        <button id="submit-btn-jo" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                                    class="fa fa-check"></span> &nbsp;Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal VISA-->
+    <div class="modal fade" id="addModalVisa" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload File Visa</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="submit_visa" class="panel-body" enctype="multipart/form-data">
+                        <div class="form-group input-group-sm">
+                            <label class="btn btn-default">
+                                <input type="file" name="file" id="file_u_visa">
+                            </label>
+                        </div>
+                        <button id="submit-btn-visa" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                                    class="fa fa-check"></span> &nbsp;Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Tiket-->
+    <div class="modal fade" id="addModalTiket" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload File Tiket</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="submit_tiket" class="panel-body" enctype="multipart/form-data">
+                        <div class="form-group input-group-sm">
+                            <label class="btn btn-default">
+                                <input type="file" name="file" id="file_u_tiket">
+                            </label>
+                        </div>
+                        <button id="submit-btn-tiket" class="btn btn-default margin" type="button" data-dismiss="modal"><span
                                     class="fa fa-check"></span> &nbsp;Submit
                         </button>
                     </form>
@@ -400,16 +488,16 @@ if (!empty($values)) {
 
         function update() {
             $.ajax({
-                url: ROOT + '/rekom_ajax/rekom_update',
+                url: ROOT + '/market_ajax/market_update',
                 dataType: 'json',
                 type: 'post',
                 data: {
-                    rekom_id: $('#rekom_id').val(),
-                    tgl_rekom: $('#tgl_rekom').val(),
-                    tgl_paspor: $('#tgl_paspor').val(),
-                    exp_paspor: $('#exp_paspor').val(),
-                    no_paspor: $('#no_paspor').val(),
-                    daerah_paspor: $('#daerah_paspor').val(),
+                    tgl_jo : $('#tgl_jo').val(),
+                    tgl_visa: $('#tgl_visa').val(),
+                    tgl_terbang: $('#tgl_terbang').val(),
+                    no_pesawat: $('#no_pesawat').val(),
+                    jam_terbang: $('#jam_terbang').val(),
+                    masalah: $('#masalah').val(),
                     id: user_id
                 }
             })
@@ -418,20 +506,22 @@ if (!empty($values)) {
                     alert(data.error_message);
                     return false;
                 }
-                window.location = ROOT + 'data_rekom';
+                window.location = ROOT + 'data_market';
             })
         }
 
-        $('#submit-btn-rekom').click(function () {
-            var file = $("#file_u_rekom")[0].files[0]; // get file
+        $('#submit-btn-jo').click(function () {
+            var file = $("#file_u_jo")[0].files[0]; // get file
             var filename = file.name;
             var user_id = $("#user_id").val();
+            var group = 11;
             var formData = new FormData();
-            formData.append('file', $("#file_u_rekom")[0].files[0]);
+            formData.append('file', $("#file_u_jo")[0].files[0]);
             formData.append('user_id', user_id);
             formData.append('filename', filename);
+            formData.append('group', group);
             $.ajax({
-                url: ROOT + 'rekom_ajax/do_upload/', //URL submit
+                url: ROOT + 'market_ajax/do_upload/', //URL submit
                 type: "post", //method Submit
                 data: formData, //penggunaan FormData
                 processData: false,
@@ -440,26 +530,72 @@ if (!empty($values)) {
                 async: false,
                 success: function (data) {
                     alert("Upload Berhasil."); //alert jika upload berhasil
-                    $('#file_u_rekom').val("");
-                    $('#tableRekom').DataTable().ajax.reload();
+                    $('#file_u_jo').val("");
+                    $('#tableJo').DataTable().ajax.reload();
                 }
             });
         });
 
-        $('#tableRekom').DataTable({
+        $('#submit-btn-visa').click(function () {
+            var file = $("#file_u_visa")[0].files[0]; // get file
+            var filename = file.name;
+            var user_id = $("#user_id").val();
+            var group = 12;
+            var formData = new FormData();
+            formData.append('file', $("#file_u_visa")[0].files[0]);
+            formData.append('user_id', user_id);
+            formData.append('filename', filename);
+            formData.append('group', group);
+            $.ajax({
+                url: ROOT + 'market_ajax/do_upload/', //URL submit
+                type: "post", //method Submit
+                data: formData, //penggunaan FormData
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert("Upload Berhasil."); //alert jika upload berhasil
+                    $('#file_u_visa').val("");
+                    $('#tableVisa').DataTable().ajax.reload();
+                }
+            });
+        });
+
+        $('#submit-btn-tiket').click(function () {
+            var file = $("#file_u_tiket")[0].files[0]; // get file
+            var filename = file.name;
+            var user_id = $("#user_id").val();
+            var group = 13;
+            var formData = new FormData();
+            formData.append('file', $("#file_u_tiket")[0].files[0]);
+            formData.append('user_id', user_id);
+            formData.append('filename', filename);
+            formData.append('group', group);
+            $.ajax({
+                url: ROOT + 'market_ajax/do_upload/', //URL submit
+                type: "post", //method Submit
+                data: formData, //penggunaan FormData
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert("Upload Berhasil."); //alert jika upload berhasil
+                    $('#file_u_tiket').val("");
+                    $('#tableTiket').DataTable().ajax.reload();
+                }
+            });
+        });
+
+        $('#tableJo').DataTable({
             responsive: true,
             sDom: 'lrtip',
             searching: false,
             paging: false,
             info: false,
-            // language: {
-            //     searchPlaceholder: 'Search...',
-            //     sSearch: '',
-            //     lengthMenu: '_MENU_ items/page',
-            // },
-            // "scrollX": true,
             ajax: {
-                "url": ROOT + "/rekom_ajax/rekom_get/" + user_id,
+                "url": ROOT + "/market_ajax/jo_get/" + user_id,
                 "dataSrc": function (json) {
                     var data = [];
                     var no = 1;
@@ -468,8 +604,8 @@ if (!empty($values)) {
                         value[0] = no++;
                         value[1] = json.data[i]['name'];
                         value[2] = json.data[i]['group'];
-                        value[3] = '<a href="' + ROOT + 'assets/images/rekom/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
-                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_rekom(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        value[3] = '<a href="' + ROOT + 'assets/images/market/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_market(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
                         data[i] = value;
                     }
                     console.log(data);
@@ -478,7 +614,59 @@ if (!empty($values)) {
             }
         });
 
-        function delete_rekom(id) {
+        $('#tableVisa').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                "url": ROOT + "/market_ajax/visa_get/" + user_id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['name'];
+                        value[2] = json.data[i]['group'];
+                        value[3] = '<a href="' + ROOT + 'assets/images/market/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_market(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
+        $('#tableTiket').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                "url": ROOT + "/market_ajax/tiket_get/" + user_id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['name'];
+                        value[2] = json.data[i]['group'];
+                        value[3] = '<a href="' + ROOT + 'assets/images/market/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_market(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
+        function delete_market(id) {
             if (confirm('Are you sure to delete..?')) {
                 $.ajax({
                     url: ROOT + 'dashboard_ajax/upload_delete/',
@@ -493,7 +681,9 @@ if (!empty($values)) {
                             alert(data.error_message);
                             return;
                         }
-                        $('#tableRekom').DataTable().ajax.reload();
+                        $('#tableJo').DataTable().ajax.reload();
+                        $('#tableVisa').DataTable().ajax.reload();
+                        $('#tableTiket').DataTable().ajax.reload();
                     })
                     .always(function () {
                         // $('#buy_button_loading').addClass('d-none');

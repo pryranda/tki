@@ -40,6 +40,10 @@ class M_fr_regis extends CI_Model
         $this->db->select(
             $this->table.".id,".
             $this->table.".negara_id,".
+            "(case when ".$this->table.".negara_id = 1 then 'Singapura'
+                   when ".$this->table.".negara_id = 2 then 'Malaysia'
+                   when ".$this->table.".negara_id = 3 then 'Hongkong'
+                   else '' END) as negara,".
             $this->table.".np_id,".
             $this->table.".no_kode,".
             $this->table.".tgl_masuk,".
@@ -64,6 +68,19 @@ class M_fr_regis extends CI_Model
             $this->table.".tgl_finger_medical,".
             $this->table.".photo,".
             $this->table.".file_photo,".
+            $this->table.".id_rekom,".
+            $this->table.".tgl_rekom,".
+            $this->table.".tgl_paspor,".
+            $this->table.".tgl_exp_paspor,".
+            $this->table.".no_paspor,".
+            $this->table.".daerah_paspor,".
+            $this->table.".pl,".
+            $this->table.".tgl_jo,".
+            $this->table.".tgl_visa,".
+            $this->table.".tgl_terbang,".
+            $this->table.".no_pesawat,".
+            $this->table.".jam_terbang,".
+            $this->table.".masalah,".
             $this->table_negara.".negara,".
             $this->table_negara.".negara_code,".
             $this->table_np.".nama as nama_np"
@@ -82,6 +99,10 @@ class M_fr_regis extends CI_Model
         $this->db->select(
             $this->table.".id,".
             $this->table.".negara_id,".
+            "(case when ".$this->table.".negara_id = 1 then 'Singapura'
+                   when ".$this->table.".negara_id = 2 then 'Malaysia'
+                   when ".$this->table.".negara_id = 3 then 'Hongkong'
+                   else '' END) as negara,".
             $this->table.".np_id,".
             $this->table.".no_kode,".
             $this->table.".tgl_masuk,".
@@ -113,6 +134,13 @@ class M_fr_regis extends CI_Model
             $this->table.".berat,".
             $this->table.".medical_status,".
             $this->table.".tgl_finger_medical,".
+            $this->table.".pl,".
+            $this->table.".tgl_jo,".
+            $this->table.".tgl_visa,".
+            $this->table.".tgl_terbang,".
+            $this->table.".no_pesawat,".
+            $this->table.".jam_terbang,".
+            $this->table.".masalah,".
             $this->table_negara.".negara,".
             $this->table_negara.".negara_code,".
             $this->table_np.".nama as nama_np"
@@ -130,6 +158,10 @@ class M_fr_regis extends CI_Model
         $this->db->select(
             $this->table.".id,".
             $this->table.".negara_id,".
+            "(case when ".$this->table.".negara_id = 1 then 'Singapura'
+                   when ".$this->table.".negara_id = 2 then 'Malaysia'
+                   when ".$this->table.".negara_id = 3 then 'Hongkong'
+                   else '' END) as negara,".
             $this->table.".np_id,".
             $this->table.".no_kode,".
             $this->table.".tgl_masuk,".
@@ -161,6 +193,13 @@ class M_fr_regis extends CI_Model
             $this->table.".berat,".
             $this->table.".medical_status,".
             $this->table.".tgl_finger_medical,".
+            $this->table.".pl,".
+            $this->table.".tgl_jo,".
+            $this->table.".tgl_visa,".
+            $this->table.".tgl_terbang,".
+            $this->table.".no_pesawat,".
+            $this->table.".jam_terbang,".
+            $this->table.".masalah,".
             $this->table_negara.".negara,".
             $this->table_negara.".negara_code,".
             $this->table_np.".nama as nama_np"

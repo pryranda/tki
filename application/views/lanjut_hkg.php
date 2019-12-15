@@ -247,8 +247,8 @@ if (!empty($values)) {
                             <label>Nationality</label>
                             <input type="text" name="nationality" id="nationality" class="form-control"
                                    placeholder="nationality"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->nationality;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->nationality;
                                    } ?>" readonly>
                         </div>
                     </div>
@@ -256,8 +256,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Airport</label>
                             <input type="text" name="airport" id="airport" class="form-control" placeholder="Airport"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->airport;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->airport;
                                    } ?>" readonly>
                         </div>
                     </div>
@@ -327,8 +327,8 @@ if (!empty($values)) {
                             <label>No Asuransi</label>
                             <input type="text" name="no_asuransi" id="no_asuransi" class="form-control"
                                    placeholder="No Asuransi"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pra_no_asur;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->pra_no_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -337,8 +337,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Asuransi</label>
                             <input type="date" name="tgl_asuransi" id="tgl_asuransi" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pra_tgl_asur;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->pra_tgl_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -351,8 +351,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Buka</label>
                             <input type="date" name="tgl_paspor" id="tgl_buka_finger" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tgl_buka;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->finger_tgl_buka;
                                    } ?>">
                         </div>
                     </div>
@@ -361,8 +361,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Tutup</label>
                             <input type="date" name="exp_paspor" id="tgl_tutup_finger" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tgl_tutup;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->finger_tgl_tutup;
                                    } ?>">
                         </div>
                     </div>
@@ -372,8 +372,8 @@ if (!empty($values)) {
                             <label>Tempat BLK</label>
                             <input type="text" name="tempat_blk" id="tempat_blk" class="form-control"
                                    placeholder="Tempat BLK"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tempat;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->finger_tempat;
                                    } ?>">
                         </div>
                     </div>
@@ -386,8 +386,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Ujian</label>
                             <input type="date" name="tgl_ujian" id="tgl_ujian" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->ujian_tgl;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->ujian_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -421,8 +421,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal KUR</label>
                             <input type="date" name="tgl_kur" id="tgl_kur" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tgl;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->kur_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -432,8 +432,8 @@ if (!empty($values)) {
                             <label>Tempat Finance</label>
                             <input type="text" name="tempat_fin" id="tempat_fin" class="form-control"
                                    placeholder="Tempat Fnance"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tempat;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->kur_tempat;
                                    } ?>">
                         </div>
                     </div>
@@ -442,8 +442,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Pencairan</label>
                             <input type="date" name="tgl_pencairan" id="tgl_pencairan" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tgl_pencairan;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->kur_tgl_pencairan;
                                    } ?>">
                         </div>
                     </div>
@@ -452,8 +452,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Nominal</label>
                             <input type="number" name="nominal" id="nominal" class="form-control" placeholder="Nominal"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_nominal;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->kur_nominal;
                                    } ?>">
                         </div>
                     </div>
@@ -466,8 +466,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Asuransi Purna</label>
                             <input type="date" name="tgl_pur" id="tgl_pur" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->purna_tgl_asur;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->purna_tgl_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -477,8 +477,8 @@ if (!empty($values)) {
                             <label>No Asuransi Purna</label>
                             <input type="text" name="no_asuransi_pur" id="no_asuransi_pur" class="form-control"
                                    placeholder="No Asuransi Purna"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->purna_no_asur;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->purna_no_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -512,8 +512,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal PAP</label>
                             <input type="date" name="tgl_pap" id="tgl_pap" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pap_tgl;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->pap_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -523,8 +523,8 @@ if (!empty($values)) {
                             <label>Tempat PAP</label>
                             <input type="text" name="tempat_pap" id="tempat_pap" class="form-control"
                                    placeholder="Tempat Fnance"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pap_tempat;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->pap_tempat;
                                    } ?>">
                         </div>
                     </div>
@@ -535,9 +535,9 @@ if (!empty($values)) {
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <select name="hsl_pap" id="hsl_pap" class="form-control input-sm">
-                            <option value=<?php if ($bio_sgp) {
-                                echo $bio_sgp->pap_hasil;
-                            } ?>><?php if ($bio_sgp->pap_hasil == 1) { echo 'Berhasil';}else{ echo 'Tidak'; } ?></option>
+                            <option value=<?php if ($bio_hkg) {
+                                echo $bio_hkg->pap_hasil;
+                            } ?>><?php if ($bio_hkg->pap_hasil == 1) { echo 'Berhasil';}else{ echo 'Tidak'; } ?></option>
                             <option value="1">Berhasil</option>
                             <option value="2">Tidak</option>
                         </select>
@@ -551,8 +551,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Leges</label>
                             <input type="date" name="tgl_leges" id="tgl_leges" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->leges_tgl;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->leges_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -634,7 +634,7 @@ if (!empty($values)) {
 
         function update() {
             $.ajax({
-                url: ROOT + '/lanjut_ajax/lanjut_update',
+                url: ROOT + '/lanjut_ajax/lanjut_hkg_update',
                 dataType: 'json',
                 type: 'post',
                 data: {

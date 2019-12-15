@@ -251,8 +251,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Nationality</label>
                             <input type="text" name="nationality" id="nationality" class="form-control" placeholder="nationality"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->nationality;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->nationality;
                                    } ?>">
                         </div>
                     </div>
@@ -260,86 +260,10 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Airport</label>
                             <input type="text" name="airport" id="airport" class="form-control" placeholder="Airport"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->airport;
+                                   value="<?php if ($bio_hkg) {
+                                       echo $bio_hkg->airport;
                                    } ?>">
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <hr>
-                        MEDICAL HISTORY
-                    </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Alergies (If Any)</label>
-                                <input type="text" name="alergies" id="alergies" class="form-control" placeholder="Alergies"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->alergies;
-                                       } ?>">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Physical Disabilities</label>
-                                <input type="text" name="physical_dis" id="physical_dis" class="form-control" placeholder="Disabilities"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->physical_dis;
-                                       } ?>">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <br>
-                            <div class="form-group input-group-sm">
-                                <label>Dietary Restriction</label>
-                                <input type="text" name="dietary" id="dietary" class="form-control" placeholder="Dietary"
-                                       value="<?php if ($bio_sgp) {
-                                           echo $bio_sgp->dietary;
-                                       } ?>">
-                            </div>
-                        </div>
-                    <div class="col-md-12 col-sm-12">
-                        <hr>
-                        <p>Food handling Preference:</p>
-                        <?php
-                        foreach ($food as $row) {
-                            $check = "";
-                            if ($row->user_id) {
-                                $check = "checked";
-                            }
-                            ?>
-                            <div class="col-md-2 col-sm-2">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?= $check ?> id="food<?= $row->id ?>"
-                                           onclick="set_food(<?= $row->id ?>)"
-                                           value="<?= $row->id ?>"> <?= $row->food ?>
-                                </label>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <hr>
-                        <p>Past and existing illnesses (including chronic ailments and illnesses requiring medication):</p>
-                        <?php
-                        foreach ($illness as $row) {
-                            $check = "";
-                            if ($row->user_id) {
-                                $check = "checked";
-                            }
-                            ?>
-                            <div class="col-md-2 col-sm-2">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?= $check ?> id="illness<?= $row->id ?>"
-                                           onclick="set_illness(<?= $row->id ?>)"
-                                           value="<?= $row->id ?>"> <?= $row->illness ?>
-                                </label>
-                            </div>
-                            <?php
-                        }
-                        ?>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <hr>
@@ -438,33 +362,14 @@ if (!empty($values)) {
 
                     <div class="col-md-12 col-sm-12">
                         <hr>
-                        FEED BACK
+                        REMARKS
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <br>
-                        <div class="form-group">
-                            <label>Employer 1</label>
-                            <textarea name="feedback1" id="feedback1" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->feedback1;
-                                } ?></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <br>
-                        <div class="form-group">
-                            <label>Employer 2</label>
-                            <textarea name="feedback2" id="feedback2" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->feedback2;
-                                } ?></textarea>
-                        </div>
-                    </div>
-
                     <div class="col-md-12 col-sm-12">
                         <br>
                         <div class="form-group">
                             <label>Other Remarks</label>
-                            <textarea name="other_remarks" id="other_remarks" class="form-control" rows="2"><?php if ($bio_sgp) {
-                                    echo $bio_sgp->other_remarks;
+                            <textarea name="remarks" id="remarks" class="form-control" rows="2"><?php if ($bio_hkg) {
+                                    echo $bio_hkg->remarks;
                                 } ?></textarea>
                         </div>
                     </div>
@@ -511,68 +416,6 @@ if (!empty($values)) {
         </div>
     </div>
 
-    <script>
-        var set_illness = function (id) {
-            var user_id = $("#user_id").val();
-            $val = $('#illness' + id).is(":checked");
-            var value = 0; //uncheck
-            alert(user_id);
-            alert(id);
-
-
-            if ($val) {
-                value = 1; //checked
-            }
-            alert(value);
-            $.ajax({
-                url: ROOT + 'biodata_ajax/ajax_set_illness',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    "value": value,
-                    "illness": id,
-                    "user_id": user_id
-                }
-            })
-                .done(function (data) {
-                    if (data.is_error == 1) {
-                        alert_error(data.error_message);
-                        return;
-                    }
-                    console.log(data);
-                })
-        }
-
-        var set_food = function (id) {
-            var user_id = $("#user_id").val();
-            $val = $('#food' + id).is(":checked");
-            var value = 0; //uncheck
-            alert(user_id);
-            alert(id);
-
-            if ($val) {
-                value = 1; //checked
-            }
-            alert(value);
-            $.ajax({
-                url: ROOT + 'biodata_ajax/ajax_set_food',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    "value": value,
-                    "food": id,
-                    "user_id": user_id
-                }
-            })
-                .done(function (data) {
-                    if (data.is_error == 1) {
-                        alert_error(data.error_message);
-                        return;
-                    }
-                    console.log(data);
-                })
-        }
-    </script>
     <script type="text/javascript">
         var id = $("#aksi").val();
         var user_id = $("#user_id").val();
@@ -583,18 +426,13 @@ if (!empty($values)) {
 
         function update() {
             $.ajax({
-                url: ROOT + '/biodata_ajax/bio_update',
+                url: ROOT + '/biodata_ajax/bio_hkg_update',
                 dataType: 'json',
                 type: 'post',
                 data: {
                     nationality: $('#nationality').val(),
                     airport: $('#airport').val(),
-                    alergies: $('#alergies').val(),
-                    physical_dis: $('#physical_dis').val(),
-                    dietary: $('#dietary').val(),
-                    feedback1: $('#feedback1').val(),
-                    feedback2: $('#feedback2').val(),
-                    other_remarks: $('#other_remarks').val(),
+                    remarks: $('#remarks').val(),
                     id: user_id
                 }
             })
@@ -605,13 +443,6 @@ if (!empty($values)) {
                     }
                     window.location = ROOT + 'data_tki_bio';
                 })
-            // .always(function(){
-            //     // $('#buy_button_loading').addClass('d-none');
-            //     // $('#buy_button').removeClass('d-none');
-            // })
-            // .error(function(data){
-            //     }
-            // );
         }
 
         $('#submit-btn-photo').click(function () {

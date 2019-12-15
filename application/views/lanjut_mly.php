@@ -247,8 +247,8 @@ if (!empty($values)) {
                             <label>Nationality</label>
                             <input type="text" name="nationality" id="nationality" class="form-control"
                                    placeholder="nationality"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->nationality;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->nationality;
                                    } ?>" readonly>
                         </div>
                     </div>
@@ -256,8 +256,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Airport</label>
                             <input type="text" name="airport" id="airport" class="form-control" placeholder="Airport"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->airport;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->airport;
                                    } ?>" readonly>
                         </div>
                     </div>
@@ -327,8 +327,8 @@ if (!empty($values)) {
                             <label>No Asuransi</label>
                             <input type="text" name="no_asuransi" id="no_asuransi" class="form-control"
                                    placeholder="No Asuransi"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pra_no_asur;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->pra_no_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -337,22 +337,67 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Asuransi</label>
                             <input type="date" name="tgl_asuransi" id="tgl_asuransi" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pra_tgl_asur;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->pra_tgl_asur;
                                    } ?>">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <hr>
+                        ISC
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Tanggal ISC</label>
+                            <input type="date" name="tgl_isc" id="tgl_isc" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->isc_tgl;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Tanggal ISC exp</label>
+                            <input type="date" name="tgl_isc_exp" id="tgl_isc_exp" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->isc_tgl_exp;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Scan</label>
+                            <button id="addISC" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalISC"><span class="fa fa-plus"></span> &nbsp;Upload ISC
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableISC" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama File</th>
+                                <th>Jenis File</th>
+                                <th>Download</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div><!--/.search-result-item-->
+                    <div class="col-md-12 col-sm-12">
                         FINGER BLK
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <div class="form-group input-group-sm">
                             <label>Tanggal Buka</label>
-                            <input type="date" name="tgl_paspor" id="tgl_buka_finger" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tgl_buka;
+                            <input type="date" name="tgl_buka_finger" id="tgl_buka_finger" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->finger_tgl_buka;
                                    } ?>">
                         </div>
                     </div>
@@ -360,9 +405,9 @@ if (!empty($values)) {
                         <br>
                         <div class="form-group input-group-sm">
                             <label>Tanggal Tutup</label>
-                            <input type="date" name="exp_paspor" id="tgl_tutup_finger" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tgl_tutup;
+                            <input type="date" name="tgl_tutup_finger" id="tgl_tutup_finger" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->finger_tgl_tutup;
                                    } ?>">
                         </div>
                     </div>
@@ -372,8 +417,8 @@ if (!empty($values)) {
                             <label>Tempat BLK</label>
                             <input type="text" name="tempat_blk" id="tempat_blk" class="form-control"
                                    placeholder="Tempat BLK"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->finger_tempat;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->finger_tempat;
                                    } ?>">
                         </div>
                     </div>
@@ -386,8 +431,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Ujian</label>
                             <input type="date" name="tgl_ujian" id="tgl_ujian" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->ujian_tgl;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->ujian_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -414,51 +459,86 @@ if (!empty($values)) {
                         </table>
                     </div><!--/.search-result-item-->
                     <div class="col-md-12 col-sm-12">
-                        DAFTAR TKI UNTUK PEMBIAYAAN KUR
+                        BESTINET
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <div class="form-group input-group-sm">
-                            <label>Tanggal KUR</label>
-                            <input type="date" name="tgl_kur" id="tgl_kur" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tgl;
+                            <label>Tanggal Bestinet</label>
+                            <input type="date" name="tgl_bestinet" id="tgl_bestinet" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->bestinet_tgl;
                                    } ?>">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <div class="form-group input-group-sm">
-                            <label>Tempat Finance</label>
-                            <input type="text" name="tempat_fin" id="tempat_fin" class="form-control"
-                                   placeholder="Tempat Fnance"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tempat;
+                            <label>Tanggal Bestinet exp</label>
+                            <input type="date" name="tgl_bestinet_exp" id="tgl_bestinet_exp" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->bestinet_tgl_exp;
                                    } ?>">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-2 col-sm-2">
                         <br>
                         <div class="form-group input-group-sm">
-                            <label>Tanggal Pencairan</label>
-                            <input type="date" name="tgl_pencairan" id="tgl_pencairan" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_tgl_pencairan;
-                                   } ?>">
+                            <label>Scan</label>
+                            <button id="addBestinet" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalBestinet"><span class="fa fa-plus"></span> &nbsp;Upload Bestinet
+                            </button>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>Nominal</label>
-                            <input type="number" name="nominal" id="nominal" class="form-control" placeholder="Nominal"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->kur_nominal;
-                                   } ?>">
-                        </div>
-                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableBestinet" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama File</th>
+                                <th>Jenis File</th>
+                                <th>Download</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div><!--/.search-result-item-->
                     <div class="col-md-12 col-sm-12">
-                        <hr>
+                        CHOP VISA
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Tanggal Chop Visa</label>
+                            <input type="date" name="tgl_chop_visa" id="tgl_chop_visa" class="form-control"
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->chop_visa_tgl;
+                                   } ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <br>
+                        <div class="form-group input-group-sm">
+                            <label>Scan</label>
+                            <button id="addChopvisa" class="btn btn-default btn-sm form-control" type="button"
+                                    data-toggle="modal" data-target="#addModalChopvisa"><span class="fa fa-plus"></span> &nbsp;Upload Chop Visa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-result-item col-md-12">
+                        <table id="tableChopvisa" class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama File</th>
+                                <th>Jenis File</th>
+                                <th>Download</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div><!--/.search-result-item-->
+                    <div class="col-md-12 col-sm-12">
                         ASURANSI PURNA
                     </div>
                     <div class="col-md-3 col-sm-3">
@@ -466,8 +546,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal Asuransi Purna</label>
                             <input type="date" name="tgl_pur" id="tgl_pur" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->purna_tgl_asur;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->purna_tgl_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -477,8 +557,8 @@ if (!empty($values)) {
                             <label>No Asuransi Purna</label>
                             <input type="text" name="no_asuransi_pur" id="no_asuransi_pur" class="form-control"
                                    placeholder="No Asuransi Purna"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->purna_no_asur;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->purna_no_asur;
                                    } ?>">
                         </div>
                     </div>
@@ -512,8 +592,8 @@ if (!empty($values)) {
                         <div class="form-group input-group-sm">
                             <label>Tanggal PAP</label>
                             <input type="date" name="tgl_pap" id="tgl_pap" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pap_tgl;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->pap_tgl;
                                    } ?>">
                         </div>
                     </div>
@@ -523,8 +603,8 @@ if (!empty($values)) {
                             <label>Tempat PAP</label>
                             <input type="text" name="tempat_pap" id="tempat_pap" class="form-control"
                                    placeholder="Tempat Fnance"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->pap_tempat;
+                                   value="<?php if ($bio_mly) {
+                                       echo $bio_mly->pap_tempat;
                                    } ?>">
                         </div>
                     </div>
@@ -535,26 +615,12 @@ if (!empty($values)) {
                     <div class="col-md-3 col-sm-3">
                         <br>
                         <select name="hsl_pap" id="hsl_pap" class="form-control input-sm">
-                            <option value=<?php if ($bio_sgp) {
-                                echo $bio_sgp->pap_hasil;
-                            } ?>><?php if ($bio_sgp->pap_hasil == 1) { echo 'Berhasil';}else{ echo 'Tidak'; } ?></option>
+                            <option value=<?php if ($bio_mly) {
+                                echo $bio_mly->pap_hasil;
+                            } ?>><?php if ($bio_mly->pap_hasil == 1) { echo 'Berhasil';}else{ echo 'Tidak'; } ?></option>
                             <option value="1">Berhasil</option>
                             <option value="2">Tidak</option>
                         </select>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <hr>
-                        LEGES
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <br>
-                        <div class="form-group input-group-sm">
-                            <label>Tanggal Leges</label>
-                            <input type="date" name="tgl_leges" id="tgl_leges" class="form-control"
-                                   value="<?php if ($bio_sgp) {
-                                       echo $bio_sgp->leges_tgl;
-                                   } ?>">
-                        </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <hr>
@@ -570,11 +636,33 @@ if (!empty($values)) {
         </div>
     </div>
 
+    <!-- Modal ISC-->
+    <div class="modal fade" id="addModalISC" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tambah ISC</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="submit_isc" class="panel-body" enctype="multipart/form-data">
+                        <div class="form-group input-group-sm">
+                            <label class="btn btn-default">
+                                <input type="file" name="file" id="file_u_isc">
+                            </label>
+                        </div>
+                        <button id="submit-btn-isc" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                                    class="fa fa-check"></span> &nbsp;Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal  Sertifikat-->
     <div class="modal fade" id="addModalSertifikat" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -593,15 +681,60 @@ if (!empty($values)) {
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!-- Modal Bestinet-->
+    <div class="modal fade" id="addModalBestinet" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tambah Bestinet</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="submit_bestinet" class="panel-body" enctype="multipart/form-data">
+                        <div class="form-group input-group-sm">
+                            <label class="btn btn-default">
+                                <input type="file" name="file" id="file_u_bestinet">
+                            </label>
+                        </div>
+                        <button id="submit-btn-bestinet" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                                    class="fa fa-check"></span> &nbsp;Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chop Visa-->
+    <div class="modal fade" id="addModalChopvisa" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tambah Chop Visa</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="submit_chopvisa" class="panel-body" enctype="multipart/form-data">
+                        <div class="form-group input-group-sm">
+                            <label class="btn btn-default">
+                                <input type="file" name="file" id="file_u_chopvisa">
+                            </label>
+                        </div>
+                        <button id="submit-btn-chopvisa" class="btn btn-default margin" type="button" data-dismiss="modal"><span
+                                    class="fa fa-check"></span> &nbsp;Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Modal Asuransi Pra-->
     <div class="modal fade" id="addModalAsurpra" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -620,7 +753,6 @@ if (!empty($values)) {
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -634,26 +766,26 @@ if (!empty($values)) {
 
         function update() {
             $.ajax({
-                url: ROOT + '/lanjut_ajax/lanjut_update',
+                url: ROOT + '/lanjut_ajax/lanjut_mly_update',
                 dataType: 'json',
                 type: 'post',
                 data: {
                     no_asuransi: $('#no_asuransi').val(),
                     tgl_asuransi: $('#tgl_asuransi').val(),
+                    tgl_isc: $('#tgl_isc').val(),
+                    tgl_isc_exp: $('#tgl_isc_exp').val(),
                     tgl_buka_finger: $('#tgl_buka_finger').val(),
                     tgl_tutup_finger: $('#tgl_tutup_finger').val(),
                     tempat_blk: $('#tempat_blk').val(),
                     tgl_ujian: $('#tgl_ujian').val(),
-                    tgl_kur: $('#tgl_kur').val(),
-                    tempat_fin: $('#tempat_fin').val(),
-                    tgl_pencairan: $('#tgl_pencairan').val(),
-                    nominal: $('#nominal').val(),
+                    tgl_bestinet: $('#tgl_bestinet').val(),
+                    tgl_bestinet_exp: $('#tgl_bestinet_exp').val(),
+                    tgl_chop_visa: $('#tgl_chop_visa').val(),
                     tgl_pur: $('#tgl_pur').val(),
                     no_asuransi_pur: $('#no_asuransi_pur').val(),
                     tgl_pap: $('#tgl_pap').val(),
                     tempat_pap: $('#tempat_pap').val(),
                     hsl_pap: $('#hsl_pap').val(),
-                    tgl_leges: $('#tgl_leges').val(),
                     id: user_id
                 }
             })
@@ -665,6 +797,32 @@ if (!empty($values)) {
                     window.location = ROOT + 'data_lanjut';
                 })
         }
+
+        $('#submit-btn-isc').click(function () {
+            var file = $("#file_u_isc")[0].files[0]; // get file
+            var filename = file.name;
+            var user_id = $("#user_id").val();
+            var group = 13;
+            var formData = new FormData();
+            formData.append('file', $("#file_u_isc")[0].files[0]);
+            formData.append('user_id', user_id);
+            formData.append('filename', filename);
+            formData.append('group', group);
+            $.ajax({
+                url: ROOT + 'lanjut_ajax/do_upload/', //URL submit
+                type: "post", //method Submit
+                data: formData, //penggunaan FormData
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert("Upload Berhasil."); //alert jika upload berhasil
+                    $('#file_u_isc').val("");
+                    $('#tableISC').DataTable().ajax.reload();
+                }
+            });
+        });
 
         $('#submit-btn-sertifikat').click(function () {
             var file = $("#file_u_sertifikat")[0].files[0]; // get file
@@ -688,6 +846,58 @@ if (!empty($values)) {
                     alert("Upload Berhasil."); //alert jika upload berhasil
                     $('#file_u_sertifikat').val("");
                     $('#tableSertifikat').DataTable().ajax.reload();
+                }
+            });
+        });
+
+        $('#submit-btn-bestinet').click(function () {
+            var file = $("#file_u_bestinet")[0].files[0]; // get file
+            var filename = file.name;
+            var user_id = $("#user_id").val();
+            var group = 14;
+            var formData = new FormData();
+            formData.append('file', $("#file_u_bestinet")[0].files[0]);
+            formData.append('user_id', user_id);
+            formData.append('filename', filename);
+            formData.append('group', group);
+            $.ajax({
+                url: ROOT + 'lanjut_ajax/do_upload/', //URL submit
+                type: "post", //method Submit
+                data: formData, //penggunaan FormData
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert("Upload Berhasil."); //alert jika upload berhasil
+                    $('#file_u_bestinet').val("");
+                    $('#tableBestinet').DataTable().ajax.reload();
+                }
+            });
+        });
+
+        $('#submit-btn-chopvisa').click(function () {
+            var file = $("#file_u_chopvisa")[0].files[0]; // get file
+            var filename = file.name;
+            var user_id = $("#user_id").val();
+            var group = 15;
+            var formData = new FormData();
+            formData.append('file', $("#file_u_chopvisa")[0].files[0]);
+            formData.append('user_id', user_id);
+            formData.append('filename', filename);
+            formData.append('group', group);
+            $.ajax({
+                url: ROOT + 'lanjut_ajax/do_upload/', //URL submit
+                type: "post", //method Submit
+                data: formData, //penggunaan FormData
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    alert("Upload Berhasil."); //alert jika upload berhasil
+                    $('#file_u_chopvisa').val("");
+                    $('#tableChopvisa').DataTable().ajax.reload();
                 }
             });
         });
@@ -750,20 +960,92 @@ if (!empty($values)) {
             }
         });
 
+        $('#tableISC').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                "url": ROOT + "/lanjut_ajax/isc_get/" + user_id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['name'];
+                        value[2] = json.data[i]['group'];
+                        value[3] = '<a href="' + ROOT + 'assets/images/lanjut/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_lanjut(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
         $('#tableSertifikat').DataTable({
             responsive: true,
             sDom: 'lrtip',
             searching: false,
             paging: false,
             info: false,
-            // language: {
-            //     searchPlaceholder: 'Search...',
-            //     sSearch: '',
-            //     lengthMenu: '_MENU_ items/page',
-            // },
-            // "scrollX": true,
             ajax: {
                 "url": ROOT + "/lanjut_ajax/sertifikat_get/" + user_id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['name'];
+                        value[2] = json.data[i]['group'];
+                        value[3] = '<a href="' + ROOT + 'assets/images/lanjut/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_lanjut(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
+        $('#tableBestinet').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                "url": ROOT + "/lanjut_ajax/bestinet_get/" + user_id,
+                "dataSrc": function (json) {
+                    var data = [];
+                    var no = 1;
+                    for (var i = 0, ien = json.data.length; i < ien; i++) {
+                        var value = [];
+                        value[0] = no++;
+                        value[1] = json.data[i]['name'];
+                        value[2] = json.data[i]['group'];
+                        value[3] = '<a href="' + ROOT + 'assets/images/lanjut/' + json.data[i]['file'] + '" target="_blank" class="btn btn-default btn-sm"><span class="fa fa-download"></span>&nbsp;Downloads</a>';
+                        value[4] = '<button class="btn btn-sm btn-danger" type="submit" onclick="delete_lanjut(' + json.data[i]['id'] + ')"><i class="glyphicon glyphicon-trash"></i> Delete</button>';
+                        data[i] = value;
+                    }
+                    console.log(data);
+                    return data;
+                }
+            }
+        });
+
+        $('#tableChopvisa').DataTable({
+            responsive: true,
+            sDom: 'lrtip',
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                "url": ROOT + "/lanjut_ajax/chopvisa_get/" + user_id,
                 "dataSrc": function (json) {
                     var data = [];
                     var no = 1;
@@ -788,12 +1070,6 @@ if (!empty($values)) {
             searching: false,
             paging: false,
             info: false,
-            // language: {
-            //     searchPlaceholder: 'Search...',
-            //     sSearch: '',
-            //     lengthMenu: '_MENU_ items/page',
-            // },
-            // "scrollX": true,
             ajax: {
                 "url": ROOT + "/lanjut_ajax/asurpra_get/" + user_id,
                 "dataSrc": function (json) {
@@ -831,6 +1107,9 @@ if (!empty($values)) {
                         }
                         $('#tableSertifikat').DataTable().ajax.reload();
                         $('#tableAsurpra').DataTable().ajax.reload();
+                        $('#tableISC').DataTable().ajax.reload();
+                        $('#tableBestinet').DataTable().ajax.reload();
+                        $('#tableChopvisa').DataTable().ajax.reload();
                     })
                     .always(function () {
                         // $('#buy_button_loading').addClass('d-none');
