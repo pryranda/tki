@@ -10,11 +10,15 @@ class Dashboard extends CI_Controller {
             redirect('login');
             exit;
         }
+        $this->load->model(array(
+            'admin/m_mst_menu'));
     }
 
-	public function index()
+	public function index($id=0)
 	{
-        $this->load->view('dashboard');
+        $data['menu']="dashboard";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('dashboard',$data);
 	}
 
     public function pendaftaran($id=0)
@@ -33,12 +37,15 @@ class Dashboard extends CI_Controller {
         $data['keterampilan'] =$this->m_mst_regis_keterampilan->get_all_by_id($id);
         $data['bahasa_val'] =$this->m_mst_regis_bahasa->get_all_by_id($id);
         $data['values']=$this->m_fr_regis->get_by_id_tki($id);
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $this->load->view('pendaftaran',$data);
     }
 
     public function data_tki()
     {
-        $this->load->view('data_tki');
+        $data['menu']="pendaftaran";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_tki',$data);
     }
 
     public function biodata($id=0)
@@ -52,6 +59,7 @@ class Dashboard extends CI_Controller {
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
         $data['menu']="biodata";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
 //        $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -79,6 +87,7 @@ class Dashboard extends CI_Controller {
             'm_mst_mly_general'
             ));
         $data['menu']="biodata";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -104,6 +113,7 @@ class Dashboard extends CI_Controller {
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
         $data['menu']="biodata";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['np'] =$this->m_np->get_all();
         $data['values']=$this->m_fr_regis->get_by_id_tki($id);
@@ -115,12 +125,16 @@ class Dashboard extends CI_Controller {
 
     public function data_tki_bio()
     {
-        $this->load->view('data_tki_bio');
+        $data['menu']="biodata";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_tki_bio',$data);
     }
 
     public function data_rekom()
     {
-        $this->load->view('data_rekom');
+        $data['menu']="rekom";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_rekom',$data);
     }
 
     public function rekom($id=0)
@@ -133,7 +147,8 @@ class Dashboard extends CI_Controller {
             'm_np',
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
-        $data['menu']="biodata";
+        $data['menu']="rekom";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -143,7 +158,9 @@ class Dashboard extends CI_Controller {
 
     public function data_lanjut()
     {
-        $this->load->view('data_lanjut');
+        $data['menu']="lanjut";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_lanjut',$data);
     }
 
     public function lanjut($id=0)
@@ -156,7 +173,8 @@ class Dashboard extends CI_Controller {
             'm_np',
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
-        $data['menu']="biodata";
+        $data['menu']="lanjut";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -175,7 +193,8 @@ class Dashboard extends CI_Controller {
             'm_np',
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
-        $data['menu']="biodata";
+        $data['menu']="lanjut";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -196,7 +215,8 @@ class Dashboard extends CI_Controller {
             'm_np',
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
-        $data['menu']="biodata";
+        $data['menu']="lanjut";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -208,7 +228,9 @@ class Dashboard extends CI_Controller {
 
     public function data_market()
     {
-        $this->load->view('data_market');
+        $data['menu']="market";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_market',$data);
     }
 
     public function market($id=0)
@@ -221,7 +243,8 @@ class Dashboard extends CI_Controller {
             'm_np',
             'm_mst_regis_bahasa',
             'm_mst_regis_keterampilan'));
-        $data['menu']="biodata";
+        $data['menu']="market";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $data['negara'] =$this->m_negara_tujuan->get_all();
         $data['negara_by'] =$this->m_negara_tujuan->get_by_id($id);
         $data['np'] =$this->m_np->get_all();
@@ -231,52 +254,9 @@ class Dashboard extends CI_Controller {
 
     public function data_kug()
     {
-        $this->load->view('data_kug');
-    }
-
-    public function widgets()
-    {
-        $this->load->view('widgets');
-    }
-
-    public function charts()
-    {
-        $this->load->view('charts');
-    }
-
-    public function buttons()
-    {
-        $this->load->view('buttons');
-    }
-
-    public function forms()
-    {
-        $this->load->view('forms');
-    }
-
-    public function tables()
-    {
-        $this->load->view('tables');
-    }
-
-    public function panels()
-    {
-        $this->load->view('panels');
-    }
-
-    public function icons()
-    {
-        $this->load->view('icons');
-    }
-
-    public function gallery()
-    {
-        $this->load->view('gallery');
-    }
-
-    public function search()
-    {
-        $this->load->view('search');
+        $data['menu']="kug";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_kug',$data);
     }
 
     public function login()

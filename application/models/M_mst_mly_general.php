@@ -57,6 +57,7 @@ class M_mst_mly_general extends CI_Model
         $this->db->join('(select * from '.$this->table_fr_general.' where '.$this->table_fr_general.".user_id=". $user_id.") as ".$this->table_fr_general, $this->table_fr_general.'.general_id = '.$this->table.'.id', 'left');
         $this->db->order_by($this->table.".id ASC");
         $query=$this->db->get($this->table);
+//        echo $this->db->last_query();exit;
         if($query){
             return $query->result();
         }
