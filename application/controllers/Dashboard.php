@@ -259,6 +259,20 @@ class Dashboard extends CI_Controller {
         $this->load->view('data_kug',$data);
     }
 
+    public function selesai()
+    {
+        $data['menu']="selesai";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('data_selesai',$data);
+    }
+
+    public function selesai_view()
+    {
+        $data['menu']="selesai";
+        $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
+        $this->load->view('selesai',$data);
+    }
+
     public function login()
     {
         $this->load->view('login');

@@ -19,3 +19,4 @@ $route['data_market'] = 'dashboard/data_market';
 $route['data_lanjut'] = 'dashboard/data_lanjut';
 $route['data_market'] = 'dashboard/data_market';
 $route['data_kug'] = 'dashboard/data_kug';
+$route['selesai'] = 'dashboard/selesai';

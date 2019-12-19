@@ -24,6 +24,7 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
 // Theme Switcher
 $(document).on('click', '.theme-btn', function(e){
 	var name = $(e.target).attr('data-theme');
+	// alert(name);
 	window.localStorage.setItem('lumino-theme', name);
 	setTheme(name);
 })
