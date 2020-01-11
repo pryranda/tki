@@ -17,7 +17,13 @@ class Dashboard extends CI_Controller {
 
 	public function index($id=0)
 	{
+        $this->load->model(array(
+            'm_chart'));
         $data['menu']="dashboard";
+        $data['total_tki'] =$this->m_chart->get_all_total_tki();
+        $data['total_tki_pria'] =$this->m_chart->get_all_total_tki_pria();
+        $data['total_tki_wanita'] =$this->m_chart->get_all_total_tki_wanita();
+        $data['total_admin'] =$this->m_chart->get_all_admin();
         $data['group_menu'] =$this->m_mst_menu->get_all_by_group($this->session->userdata('user_id'));
         $this->load->view('dashboard',$data);
 	}

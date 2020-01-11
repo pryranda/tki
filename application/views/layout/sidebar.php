@@ -34,6 +34,3 @@
 <script src="<?= base_url() ?>assets/js/custom.js"></script>
 <script src="<?= base_url() ?>assets/js/costum.js"></script>
 <script src="<?= base_url() ?>assets/lib/datatables/jquery.dataTables.js"></script>
-
-
-
